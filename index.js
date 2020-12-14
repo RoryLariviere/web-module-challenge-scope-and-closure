@@ -11,12 +11,12 @@
  * 
  * The following code is demonstrating a way of completing this task
  * It returns the string `foofoo`
-*/
+ */
 
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+    return callback(stringList[0])
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+console.log(processFirstItem(['foo', 'bar'], function(str) { return str + str }));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -27,9 +27,9 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   Study the code for counter1 and counter2, then answer the questions below.
   
-  1. What is the difference between counter1 and counter2?
+  1. What is the difference between counter1 and counter2? counter one is block scoped, whereas counter2 is having to get count out of global.
   
-  2. Which of the two uses a closure? How can you tell?
+  2. Which of the two uses a closure? How can you tell? counter1 because it has a nested function so that the nested function has acces to the parrent function even if it has closed.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
@@ -37,10 +37,10 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 // counter1 code
 function counterMaker() {
-  let count = 0;
-  return function counter() {
-   return count++;
-  }
+    let count = 0;
+    return function counter() {
+        return count++;
+    }
 }
 
 const counter1 = counterMaker();
@@ -49,7 +49,7 @@ const counter1 = counterMaker();
 let count = 0;
 
 function counter2() {
-  return count++;
+    return count++;
 }
 
 
@@ -62,8 +62,9 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+    let score = Math.round(Math.random() * 2);
+    return score;
 }
 
 
@@ -79,10 +80,10 @@ Use the finalScore function below to do the following:
   "Home": 11,
   "Away": 5
 }
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore( /*code Here*/ ) {
+    /*Code Here*/
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +91,8 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore( /*Your Code Here */ ) {
+    /*Your Code Here */
 }
 
 
@@ -136,25 +137,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard( /* CODE HERE */ ) {
+    /* CODE HERE */
 }
 
 
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
-function foo(){
-  //console.log('its working');
-  return 'bar';
+function foo() {
+    //console.log('its working');
+    return 'bar';
 }
-export default{
-  foo,
-  processFirstItem,
-  counter1,
-  counter2,
-  inning,
-  finalScore,
-  getInningScore,
-  scoreboard,
+export default {
+    foo,
+    processFirstItem,
+    counter1,
+    counter2,
+    inning,
+    finalScore,
+    getInningScore,
+    scoreboard,
 }
