@@ -32,7 +32,7 @@ console.log(processFirstItem(['foo', 'bar'], function(str) { return str + str })
   2. Which of the two uses a closure? How can you tell? counter1 because it has a nested function so that the nested function has acces to the parrent function even if it has closed.
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?  counter 1 would be better if it needs to be run repeatedly, and counter two if only once, also if 2's variable needs to be called on in another seperate function.
 */
 
 // counter1 code
@@ -63,7 +63,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning() {
-    let score = Math.round(Math.random() * 2);
+    var score = Math.round(Math.random() * 2);
     return score;
 }
 
@@ -82,8 +82,14 @@ Use the finalScore function below to do the following:
 }
 */
 
-function finalScore( /*code Here*/ ) {
-    /*Code Here*/
+function finalScore(inning, num) {
+    var home = 0;
+    var away = 0;
+    for (let i = 0; i < num; i++) {
+        home += inning();
+        away += inning();
+    }
+    return { 'Home': home, 'Away': away }
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -91,8 +97,8 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore( /*Your Code Here */ ) {
-    /*Your Code Here */
+function getInningScore(inning) {
+    return { 'Home': inning(), 'Away': inning() }
 }
 
 
@@ -137,8 +143,17 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard( /* CODE HERE */ ) {
-    /* CODE HERE */
+function scoreboard(getInningScore, inning, num) {
+    let scoreArr = [];
+
+    for (let i = 0; i < num; i++) {
+        scoreArr.push(`Inning ${inning()}: Away ${getInningScore(away)} - Home ${getInningScore(home)}`);
+        if (finalScore(away) === finalScore(home)) {
+            scoreArr.push(`This game will require extra innings: Away ${finalScore(away)} - Home ${finalScore(home)}`)
+        } else {
+            scoreArr.push(`Final Score: Away ${finalScore(away)} - Home ${finalScore(home)`)
+      }
+    }
 }
 
 
