@@ -42,7 +42,7 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). [closure is when functions are nested within eachother but reference the local environment.]
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,9 +63,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? [it is with the console.log as it is in a nested function and makes reference to items in and out of its nested function]
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? [the first time dansroll is being defined as a variable the second time it is being invoked like a function]
+c. What is the lexical scope of `newRoll`? [it is unable to be called on from outside the function because it is not being hoisted]
 
 
 ### Task 3 - Stretch Goals

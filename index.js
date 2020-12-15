@@ -119,7 +119,7 @@ Use the scoreboard function below to do the following:
   "Inning 2: Away 2 - Home 1",
   "Inning 3: Away 0 - Home 2", 
   "Inning 4: Away 2 - Home 2", 
-  "Inning 5: Away 2 - Home 0", 
+  "Inning 5: Away 2 - Home 0",
   "Inning 6: Away 1 - Home 1", 
   "Inning 7: Away 0 - Home 2", 
   "Inning 8: Away 2 - Home 2",
@@ -144,18 +144,22 @@ Use the scoreboard function below to do the following:
   */
 
 function scoreboard(getInningScore, inning, num) {
-    let scoreArr = [];
-
-    for (let i = 0; i < num; i++) {
-        scoreArr.push(`Inning ${inning()}: Away ${getInningScore(away)} - Home ${getInningScore(home)}`);
-        if (finalScore(away) === finalScore(home)) {
-            scoreArr.push(`This game will require extra innings: Away ${finalScore(away)} - Home ${finalScore(home)}`)
-        } else {
-            scoreArr.push(`Final Score: Away ${finalScore(away)} - Home ${finalScore(home)`)
-      }
+    let scoreBoardFin = [];
+    let homeScore = 0;
+    let awayScore = 0;
+    for (let i = 0; i <= num; i++) {
+        let scores = getInningScore(inning);
+        scoreBoardFin.push(`Inning ${i}: Away ${scores.Away} - Home ${scores.Home}`);
+        homeScore += scores.Home;
+        awayScore += scores.Away;
     }
+    if (homeScore === awayScore) {
+        scoreBoardFin.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`)
+    } else {
+        scoreBoardFin.push(`Final Score: Away ${awayScore} - Home ${homeScore}`)
+    }
+    return scoreBoardFin;
 }
-
 
 
 
