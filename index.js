@@ -149,7 +149,7 @@ function scoreboard(getInningScore, inning, num) {
     let awayScore = 0;
     for (let i = 0; i <= num; i++) {
         let scores = getInningScore(inning);
-        scoreBoardFin.push(`Inning ${i}: Away ${scores.Away} - Home ${scores.Home}`);
+        scoreBoardFin.push(`Inning ${i+1}: Away ${scores.Away} - Home ${scores.Home}`);
         homeScore += scores.Home;
         awayScore += scores.Away;
     }
@@ -161,7 +161,7 @@ function scoreboard(getInningScore, inning, num) {
     return scoreBoardFin;
 }
 
-
+console.log(scoreboard(getInningScore, inning, 8));
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo() {
